@@ -143,6 +143,8 @@ export default function AdminOrdersPage() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
 
+  setIsLoading(false);
+
   // Filter orders based on search term and status filter
   const filteredOrders = orders.filter((order) => {
     const matchesSearch =

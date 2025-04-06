@@ -75,7 +75,7 @@ export const useResetPassword = () => {
 
 export const useCurrentUser = () => {
   const { isAuthenticated, updateUser } = useAuthStore();
-
+  console.log(updateUser);
   return useQuery({
     queryKey: ["currentUser"],
     queryFn: () => authApi.getCurrentUser(),
@@ -83,8 +83,5 @@ export const useCurrentUser = () => {
     // onSuccess: (data) => {
     //   updateUser(data.user);
     // },
-    select: (data: any) => {
-      updateUser(data.user)
-    }
   });
 };

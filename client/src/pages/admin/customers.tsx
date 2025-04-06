@@ -120,6 +120,8 @@ export default function AdminCustomersPage() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
 
+  setIsLoading(false);
+
   // Filter customers based on search term and status filter
   const filteredCustomers = customers.filter((customer) => {
     const matchesSearch =

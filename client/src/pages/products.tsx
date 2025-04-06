@@ -5,13 +5,13 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent, CardFooter } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Input } from "../components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../components/ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "../components/ui/select";
 import { useCartStore } from "../store/cart-store";
 import { useProducts } from "../hooks/use-products";
 import LoadingSpinner from "../components/ui/loading-spinner";
@@ -23,7 +23,7 @@ import ProductFilters from "../components/product-filters";
 
 export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("featured");
+  // const [sortBy, setSortBy] = useState("featured");
   const [currentPage, setCurrentPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
   const { addItem } = useCartStore();
@@ -31,7 +31,7 @@ export default function ProductsPage() {
   // Get products with React Query
   const { data, isLoading, error } = useProducts({
     search: searchTerm,
-    sort: sortBy,
+    // sort: sortBy,
     page: currentPage,
     limit: 9,
   });
@@ -50,7 +50,8 @@ export default function ProductsPage() {
   };
 
   // Mock products if API data is not available
-  const products = data?.products || [
+  // const products = data?.products ||
+  const products = [
     {
       id: "1",
       name: "iPhone 15 Pro",
@@ -164,7 +165,7 @@ export default function ProductsPage() {
             <p className="text-muted-foreground">
               Showing {products.length} products
             </p>
-            <Select value={sortBy} onValueChange={setSortBy}>
+            {/* <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
@@ -174,7 +175,7 @@ export default function ProductsPage() {
                 <SelectItem value="price-high">Price: High to Low</SelectItem>
                 <SelectItem value="rating">Highest Rated</SelectItem>
               </SelectContent>
-            </Select>
+            </Select> */}
           </div>
 
           {isLoading ? (
