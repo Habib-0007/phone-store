@@ -36,7 +36,7 @@ export default function ProductDetailPage() {
   const { addItem } = useCartStore();
 
   // Fetch product data
-  const { data, isLoading, error } = useProduct(id || "");
+  const { isLoading, error } = useProduct(id || "");
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -82,7 +82,7 @@ export default function ProductDetailPage() {
 
   // Use mock data if API data is not available
   // const product = data?.product ||
-  
+
   const product = {
     id: id,
     name: "iPhone 15 Pro",
